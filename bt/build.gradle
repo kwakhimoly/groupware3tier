@@ -43,21 +43,10 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
     implementation('nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect')
 
+    
 }
 
 tasks.named('test') {
 	useJUnitPlatform()
 }
 
-project(':pt') {
-    apply plugin: 'java'
-    apply plugin: 'org.springframework.boot'
-}
-
-project(':bt') {
-    apply plugin: 'java'
-    apply plugin: 'org.springframework.boot'
-    bootJar {
-        classifier = 'bt'
-    }
-}

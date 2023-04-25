@@ -51,11 +51,11 @@ public class UserController {
 	
 	@PostMapping("/user/save")
 	public String postSave(UserDto dto, LnkgDto l_dto) {
-		
+
 		if(dto.getIdcheck_yn().equals("N")) {
 			return "redirect:/user";
 		}
-		
+
 		user_service.insert(dto);
 		
 		if(l_dto.getLnkg_hobby_id().equals("")) {
@@ -80,11 +80,8 @@ public class UserController {
 	@ResponseBody
 	@RequestMapping("/user/idcheck")
 	public HashMap<String, Object> idcheck(UserDto dto){
+		System.out.println(dto.getUser_id());
 		HashMap<String, Object> map = new HashMap<>();
-		if(dto.getIdcheck_yn().equals("")||dto.getIdcheck_yn()=="") {
-			map.put("result", 999999);
-			return map;
-		}
 		map.put("result", user_service.findByID(dto));
 		return map;
 	}

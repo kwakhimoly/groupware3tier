@@ -108,10 +108,10 @@ input[type="checkbox"]:checked::before {
 				</thead>
 				<tbody>
 					<tr th:each="resultList:${result}">
+						<td><span th:text="${resultList.user_id}"></span></td>
 						<td><a href="admin_view.html"
 							th:href="@{/admin/{user_id}(schKey=${schKey},user_id=${resultList.user_id})}"
-							th:text="${resultList.user_id}"></a></td>
-						<td><span th:text="${resultList.user_nm}"></span></td>
+							th:text="${resultList.user_nm}"></a></td>
 						<td><span th:text="${resultList.user_dept}"></span></td>
 						<td><span th:if="${resultList.user_aprv_yn=='N'}" th:text="승인요청"></span>
 							<span th:unless="${resultList.user_aprv_yn=='N'}" th:text="승인"></span></td>
